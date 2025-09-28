@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" id="hljs-dark-theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" id="hljs-light-theme" disabled>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <style>
+      body {
+        font-family: 'Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif';
+      }
+      /* Simple prose styles for markdown rendering */
+      .prose { max-width: 65ch; }
+      .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 600; }
+      .prose p { margin-top: 0; margin-bottom: 1em; }
+      .prose strong { font-weight: 600; }
+      .prose blockquote { margin-left: 1rem; border-left: 2px solid; padding-left: 1rem; }
+      .prose ul, .prose ol { margin-top: 0.5em; margin-bottom: 0.5em; padding-left: 1.5rem; }
+      .prose li > ul, .prose li > ol { margin-top: 0.25em; margin-bottom: 0.25em; }
+      .prose code { font-family: monospace; }
+      .prose pre { padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+      .prose pre code { background: transparent; padding: 0; }
+      .prose a { text-decoration: underline; }
+      .prose-invert { color: #d1d5db; }
+      .prose-invert h1, .prose-invert h2, .prose-invert h3, .prose-invert h4, .prose-invert h5, .prose-invert h6 { color: #fff; }
+      .prose-invert blockquote { border-color: #4b5563; }
+      .prose-invert a { color: #93c5fd; }
+      .prose-invert pre { background-color: #1f2937; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      // Configure marked to use highlight.js
+      marked.setOptions({
+        highlight: function(code, lang) {
+          const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+          return hljs.highlight(code, { language }).value;
+        },
+        langPrefix: 'hljs language-',
+        breaks: true,
+      });
+    </script>
+</body>
+</html>

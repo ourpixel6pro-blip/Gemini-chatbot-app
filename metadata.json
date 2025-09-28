@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Chat UI",
+  "description": "A sleek, dark-mode chatbot interface powered by the Google Gemini API, featuring multi-turn conversations, markdown rendering, and syntax highlighting.",
+  "requestFramePermissions": []
+}
